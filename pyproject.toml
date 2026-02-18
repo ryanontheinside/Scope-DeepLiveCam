@@ -1,0 +1,21 @@
+[project]
+name = "scope-deeplivecam"
+version = "0.1.0"
+description = "Deep Live Cam face swap pipeline for Daydream Scope"
+requires-python = ">=3.12"
+license = "AGPL-3.0-or-later"
+dependencies = [
+    # Install from git master — PyPI 0.7.3 uses deprecated np.int which breaks with numpy>=2
+    "insightface @ git+https://github.com/deepinsight/insightface.git#subdirectory=python-package",
+    "onnxruntime-gpu>=1.18.0",
+]
+
+[project.entry-points."scope"]
+scope_deeplivecam = "scope_deeplivecam.plugin"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
